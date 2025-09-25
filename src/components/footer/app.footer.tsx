@@ -11,11 +11,12 @@ const AppFooter = () => {
     //only when the code is fully returned to client that we return the AudioPlayer, since we don't want Server
     //Next.js to handle this UI, we want the client side to handle this UI 
     if (!hasMounted) return (<></>)
+
     return (
         <AppBar position="fixed" sx={{ background: '#f2f2f2', top: 'auto', bottom: 0 }}>
             <Container sx={{ display: "flex", gap: 10 }}>
                 <AudioPlayer
-                    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/tracks/hoidanit.mp3`}
                     volume={0.5}
                     style={{
                         boxShadow: "unset",
