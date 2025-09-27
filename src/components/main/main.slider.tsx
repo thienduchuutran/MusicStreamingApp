@@ -94,52 +94,6 @@ const MainSlider = () => {
                 </div>
             </Slider>
             <Divider />
-
-            <h2>Multiple Tracks</h2>
-            <Slider {...settings}>
-                <div className="abc">
-                    <h3>1</h3>
-                </div>
-                <div className="abc">
-                    <h3>2</h3>
-                </div>
-                <div className="abc">
-                    <h3>3</h3>
-                </div>
-                <div className="abc">
-                    <h3>4</h3>
-                </div>
-                <div className="abc">
-                    <h3>5</h3>
-                </div>
-                <div className="abc">
-                    <h3>6</h3>
-                </div>
-            </Slider>
-            <Divider />
-
-            <h2>Multiple Tracks</h2>
-            <Slider {...settings}>
-                <div className="abc">
-                    <h3>1</h3>
-                </div>
-                <div className="abc">
-                    <h3>2</h3>
-                </div>
-                <div className="abc">
-                    <h3>3</h3>
-                </div>
-                <div className="abc">
-                    <h3>4</h3>
-                </div>
-                <div className="abc">
-                    <h3>5</h3>
-                </div>
-                <div className="abc">
-                    <h3>6</h3>
-                </div>
-            </Slider>
-            <Divider />
         </Box>
     );
 }
