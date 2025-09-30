@@ -6,17 +6,23 @@ import { Settings } from 'react-slick'
 import { Box, Button, Divider } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
-const MainSlider = () => {
+interface IProps {
+    data: ITrackTop[],
+    title: string
+}
+
+const MainSlider = (props: IProps) => {
+    const { data, title } = props
+
     function SampleNextArrow(props: any) {
         const { className, style, onClick } = props;
         return (
-            <Button variant="outlined"
-                // className={className}
-                // style={{ ...style, display: "block", background: "red" }}
+            <Button variant="contained"
+                color="inherit"
                 sx={{
                     position: "absolute",
                     right: 0,
-                    top: "50%",
+                    top: "25%",
                     zIndex: 2,
                     minWidth: 30,
                     width: 35
@@ -32,13 +38,12 @@ const MainSlider = () => {
     function SamplePrevArrow(props: any) {
         const { className, style, onClick } = props;
         return (
-            <Button variant="outlined"
-                // className={className}
-                // style={{ ...style, display: "block", background: "red" }}
+            <Button variant="contained"
+                color="inherit"
                 sx={{
                     position: "absolute",
                     left: 0,
-                    top: "50%",
+                    top: "525",
                     zIndex: 2,
                     minWidth: 30,
                     width: 35
@@ -62,8 +67,13 @@ const MainSlider = () => {
         <Box
             sx={{
                 margin: "0 50px",
-                ".abc": {
-                    padding: "0 10px"
+                ".track": {
+                    padding: "0 10px",
+
+                    "img": {
+                        height: 150,
+                        width: 150
+                    }
                 },
                 "h3": {
                     border: "1px solid #ccc",
@@ -74,24 +84,19 @@ const MainSlider = () => {
 
             <h2>Multiple Tracks</h2>
             <Slider {...settings}>
-                <div className="abc">
-                    <h3>1</h3>
-                </div>
-                <div className="abc">
-                    <h3>2</h3>
-                </div>
-                <div className="abc">
-                    <h3>3</h3>
-                </div>
-                <div className="abc">
-                    <h3>4</h3>
-                </div>
-                <div className="abc">
-                    <h3>5</h3>
-                </div>
-                <div className="abc">
-                    <h3>6</h3>
-                </div>
+                {data.map(track => {
+                    return (
+                        <div className="track" key={track._id}>
+                            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/images/${track.imgUrl}`} />
+                            <h4>
+                                {track.title}
+                            </h4>
+                            <h5>
+                                {track.description}
+                            </h5>
+                        </div>
+                    )
+                })}
             </Slider>
             <Divider />
         </Box>
